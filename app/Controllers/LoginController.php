@@ -56,7 +56,22 @@ class LoginController extends Controller {
                 'username' => $this->request->getVar('register_username'),
                 'password_hash' => password_hash($this->request->getVar('register_password'), PASSWORD_DEFAULT)
             ];
+
+            if ($utenteModel->select()->where('username', $data['username'])->countAllResults() != 0) {
+                session()->setFlashdata('register_username_error', 'existing username');
+                session()->setFlashdata('register', 'doing registration');
+                return redirect()->to('/login');
+            }
+
             $utenteModel->save($data);
+
+            // TODO da sistemare
+            $ses_data = [
+                'id'         => $utenteModel->select('id')->where('username', $data['username']),
+                'username'   => $data['username'],
+                'isLoggedIn' => true
+            ];
+            session()->set($ses_data);
 
             return redirect()->to('/tables');
         }

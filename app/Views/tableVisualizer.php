@@ -4,21 +4,21 @@
 
     <div class="model_table">
         <h1 class="table_title"><?= esc($table_name) ?></h1>
-        <div class="table_content">
-            <table>
-                <thead>
-                <tr id="table_head_row">
+        <div id="table_content" class="table_content">
+            <table id="table">
+                <thead id="thead">
+                    <tr id="table_head_row">
                     <?php foreach ($fields_name as $field_name) : ?>
                         <td><?= string_prettier($field_name) ?></td>
                     <?php endforeach; ?>
-                </tr>
+                    </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($tuples as $tuple) : ?>
                     <tr>
-                        <?php foreach ($tuple as $key => $attribute) : ?>
-                            <td onmouseover="showTooltip(this, '<?= string_prettier($key) ?>')" onmouseleave="showTooltip(this, '<?= string_prettier($key) ?>')"><?= $attribute ?></td>
-                        <?php endforeach; ?>
+                    <?php foreach ($tuple as $key => $attribute) : ?>
+                        <td onmouseover="showTooltip(this, '<?= string_prettier($key) ?>')" onmouseleave="showTooltip(this, '<?= string_prettier($key) ?>')"><?= $attribute ?></td>
+                    <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -31,7 +31,10 @@
     let isTooltipShow = false;
 
     function showTooltip(element, field_name) {
-        if (isTooltipShow) {
+        let visible = document.getElementById('thead').getBoundingClientRect().y > 246
+        console.log(visible)
+
+        if (isTooltipShow || visible) {
             document.getElementById('tooltip').style.visibility = 'hidden'
         } else {
             document.getElementById('tooltip').innerText = field_name

@@ -81,5 +81,7 @@
             document.getElementById('register_password_congruence').style.display = 'none';
         }
     }
+
+    <?= session()->get('register') ? 'changeForm()' : ' ' ?>
 </script>
 
