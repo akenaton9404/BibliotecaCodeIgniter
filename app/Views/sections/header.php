@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--  Stili  -->
+
     <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" type="text/css">
 
     <?php if (isset($this->data['styles'])) :
@@ -11,13 +14,20 @@
         <?php endforeach;
     endif; ?>
 
+    <!--  Scripts  -->
+
+    <script src="<?= base_url('js/columnName.js') ?>"></script>
+    <script src="<?= base_url('js/fieldModify.js') ?>"></script>
+
     <?php if (isset($this->data['js'])) :
         foreach ($this->data['js'] as $js) : ?>
             <script defer src="<?= $js ?>"></script>
         <?php endforeach;
     endif; ?>
 
-    <title>Biblioteca | Login</title>
+    <!--  Titolo pagina  -->
+
+    <title><?= isset($this->data['title']) ?: "Biblioteca | Login" ?></title>
 
 </head>
 <body>
@@ -29,4 +39,6 @@
         <path d="M41.7,-62.7C49.7,-51.6,48.8,-33.6,51,-18.5C53.2,-3.4,58.6,8.7,59,22.7C59.3,36.7,54.6,52.7,43.9,64.9C33.2,77.2,16.6,85.8,3.1,81.5C-10.4,77.2,-20.8,60.1,-27.2,46.4C-33.6,32.8,-36,22.6,-45.9,10.6C-55.8,-1.5,-73.3,-15.5,-70.9,-23.1C-68.6,-30.8,-46.4,-32.1,-31.3,-40.9C-16.2,-49.6,-8.1,-65.8,4.4,-71.8C16.9,-77.9,33.7,-73.8,41.7,-62.7Z" style="transform: translate(110%, 60%)" />
     </svg>
     <!--    generatore https://www.blobmaker.app/    -->
+
+    <input class="field-input" type="text" placeholder="asd">
 </div>

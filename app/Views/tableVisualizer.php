@@ -17,7 +17,7 @@
                 <?php foreach ($tuples as $tuple) : ?>
                     <tr>
                     <?php foreach ($tuple as $key => $attribute) : ?>
-                        <td onmouseover="showTooltip(this, '<?= string_prettier($key) ?>')" onmouseleave="showTooltip(this, '<?= string_prettier($key) ?>')"><?= $attribute ?></td>
+                        <td ondblclick="fieldModify(this)" onmouseover="showColumnName(this, '<?= string_prettier($key) ?>')" onmouseleave="showColumnName(this, '<?= string_prettier($key) ?>')"><?= $attribute ?></td>
                     <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -26,23 +26,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    let isTooltipShow = false;
-
-    function showTooltip(element, field_name) {
-        let visible = document.getElementById('thead').getBoundingClientRect().y > 246
-        console.log(visible)
-
-        if (isTooltipShow || visible) {
-            document.getElementById('tooltip').style.visibility = 'hidden'
-        } else {
-            document.getElementById('tooltip').innerText = field_name
-            document.getElementById('tooltip').style.top = element.getBoundingClientRect().top + "px"
-            document.getElementById('tooltip').style.left = (element.getBoundingClientRect().left + element.getBoundingClientRect().width / 2) + "px"
-            document.getElementById('tooltip').style.visibility = 'visible'
-        }
-
-        isTooltipShow = !isTooltipShow;
-    }
-</script>
