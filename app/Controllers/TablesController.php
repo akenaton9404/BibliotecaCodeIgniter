@@ -17,7 +17,20 @@ class TablesController extends Controller {
 
         $menuData = ["table_name" => $tableName, "db_tables" => db_connect()->listTables()];
 
-        echo view('/sections/header.php', ['styles' => [base_url('css/side-menu.css'), base_url('css/table-side.css')]]) . view('/sections/side_menu', $menuData) . view('tableVisualizer', $tableData) . view('/sections/footer.php');
+        echo view('/sections/header.php', [
+            'styles' => [
+                base_url('css/side-menu.css'),
+                base_url('css/table-side.css'),
+                base_url('css/info.css')],
+            'js' => [
+                base_url('js/columnName.js'),
+                base_url('js/fieldModify.js'),
+                base_url('js/infoBox.js'),
+            ]]) .
+            view('/sections/info.php') .
+            view('/sections/side_menu', $menuData) .
+            view('tableVisualizer', $tableData) .
+            view('/sections/footer.php');
     }
 
     public function changeTable() {

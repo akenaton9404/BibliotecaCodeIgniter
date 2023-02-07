@@ -16,9 +16,6 @@
 
     <!--  Scripts  -->
 
-    <script src="<?= base_url('js/columnName.js') ?>"></script>
-    <script src="<?= base_url('js/fieldModify.js') ?>"></script>
-
     <?php if (isset($this->data['js'])) :
         foreach ($this->data['js'] as $js) : ?>
             <script defer src="<?= $js ?>"></script>
