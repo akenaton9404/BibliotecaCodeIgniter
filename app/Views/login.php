@@ -1,18 +1,18 @@
 <div id="quotes" class="quotes" style="z-index: 1">
     <div class="quote">
-        <div class="writer-pic">
+        <div class="writer_pic">
             <img src="https://media.beniculturali.it/mibac/files/boards/49c057de355871e3b42c49876090930e/DANTE-2021.--jpg.jpg">
         </div>
-        <div class="quote style-border">
+        <div class="quote style_border">
             <p class="cit">“I costumi e le mode degli uomini cambiano come le foglie sul ramo, alcune delle quali vanno ed altre vengono.”</p>
             <p class="writer">- Dante Alighieri</p>
         </div>
     </div>
     <div class="quote">
-        <div class="writer-pic">
+        <div class="writer_pic">
             <img src="https://s26162.pcdn.co/wp-content/uploads/2022/05/Italo-Calvino.png">
         </div>
-        <div class="quote style-border">
+        <div class="quote style_border">
             <p class="cit">"Prendete la vita con leggerezza, che leggerezza non è superficialità, ma planare sulle cose dall'alto, non avere macigni sul cuore."</p>
             <p class="writer">- Italo Calvino</p>
         </div>
@@ -35,7 +35,7 @@
         <input id="register_password_repeat" type="password" required minlength="6" maxlength="60" onkeyup="passwordCongruence()">
         <p id="register_password_congruence" class="error" style="display: none">Password diverse</p>
     </label>
-    <input class="login-button" type="submit" value="Registrati">
+    <input class="login_button" type="submit" value="Registrati">
     <a onclick="changeForm()">Hai già un account?</a>
 </form>
 <form id="login" action="<?php echo base_url(); ?>/LoginController/loginAuth" method="post" class="form" style="transform: translate(0, 0)">
@@ -50,7 +50,7 @@
         <input type="password" name="login_password" required minlength="6" maxlength="60">
         <p id="login_password_error" class="error" style="display: <?= session()->get('login_password_error') ? 'block' : 'none' ?>">Password errata</p>
     </label>
-    <input class="login-button" type="submit" value="Accedi">
+    <input class="login_button" type="submit" value="Accedi">
     <a onclick="changeForm()">Non hai ancora un account?</a>
 </form>
 

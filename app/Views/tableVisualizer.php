@@ -1,7 +1,5 @@
 <div class="table_side">
-
     <span id="tooltip" class="tooltip"></span>
-
     <div class="model_table">
         <h1 class="table_title"><?= esc($table_name) ?></h1>
         <div id="table_content" class="table_content">
