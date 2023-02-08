@@ -33,7 +33,7 @@ $routes->get('/', 'LoginController::index');
 $routes->match(['get', 'post'], 'LoginController/store', 'LoginController::store');
 $routes->match(['get', 'post'], 'LoginController/loginAuth', 'LoginController::loginAuth');
 $routes->match(['get', 'post'], 'LoginController/logout', 'LoginController::logout');
-$routes->match(['get', 'post'], 'TablesController/changeTable', 'TablesController::changeTable');
+$routes->match(['get', 'post'], 'TablesController/changeTable/(:segment)', 'TablesController::changeTable/$1');
 $routes->get('/login', 'LoginController::index');
 $routes->get('/registered', '..\Views\temps\registered');
 $routes->get('/tables', 'TablesController::index/autore');

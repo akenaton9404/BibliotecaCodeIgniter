@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .model_table {
     width: 80%;
@@ -86,4 +87,27 @@ table tr {
     position: absolute;
     z-index: 5;
     transform: translate(-50%, -70%);
+}
+.page_number_chooser {
+    width: 80%;
+    height: 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: 5px;
+}
+.page_choose_button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    margin-top: 0;
+    outline: 0;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: none;
+
+    background: var(--main-primary);
 }

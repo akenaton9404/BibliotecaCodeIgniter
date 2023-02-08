@@ -1,8 +1,7 @@
 <div id="side-menu" class="side-menu">
-    <form action="<?php echo base_url(); ?>/TablesController/changeTable" method="post">
-
+    <form action="<?php echo base_url(); ?>/TablesController/changeTable/1" method="post">
         <?php foreach ($db_tables as $db_table) : ?>
-            <input type="submit" name="table" value="<?= $db_table ?>" <?= strcasecmp($db_table, $table_name) == 0 ? 'style="background: linear-gradient(to right, transparent 0, transparent 98%, var(--link-color) 98%, var(--link-color) 100%);"' : '' ?>>
+            <input type="submit" class="page_chooser" name="table" value="<?= $db_table ?>" <?= strcasecmp($db_table, $table_name) == 0 ? 'style="background: linear-gradient(to right, transparent 0, transparent 98%, var(--link-color) 98%, var(--link-color) 100%);"' : '' ?>>
         <?php endforeach; ?>
     </form>
     <div class="logout">

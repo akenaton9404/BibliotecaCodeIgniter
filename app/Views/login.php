@@ -35,11 +35,11 @@
         <input id="register_password_repeat" type="password" required minlength="6" maxlength="60" onkeyup="passwordCongruence()">
         <p id="register_password_congruence" class="error" style="display: none">Password diverse</p>
     </label>
-    <input type="submit" value="Registrati">
+    <input class="login-button" type="submit" value="Registrati">
     <a onclick="changeForm()">Hai già un account?</a>
 </form>
 <form id="login" action="<?php echo base_url(); ?>/LoginController/loginAuth" method="post" class="form" style="transform: translate(0, 0)">
-    <h1 onclick="playStopAudio()">Login</h1>
+    <h1>Login</h1>
     <label>
         Username
         <input type="text" name="login_username" required minlength="3" maxlength="60" value="<?= set_value('login_username') ?>" onclick="disableErrors()">
@@ -50,7 +50,7 @@
         <input type="password" name="login_password" required minlength="6" maxlength="60">
         <p id="login_password_error" class="error" style="display: <?= session()->get('login_password_error') ? 'block' : 'none' ?>">Password errata</p>
     </label>
-    <input type="submit" value="Accedi">
+    <input class="login-button" type="submit" value="Accedi">
     <a onclick="changeForm()">Non hai ancora un account?</a>
 </form>
 

@@ -13,7 +13,7 @@
 
     text-align: center;
 }
-input[type="submit"] {
+.page_chooser {
     width: 100%;
 
     background: transparent;
@@ -27,10 +27,10 @@ input[type="submit"] {
     letter-spacing: 2px;
     padding: 15px 0;
 }
-input[type="submit"] + input[type="submit"] {
+.page_chooser + .page_chooser {
     margin-top: 6%;
 }
-input[type="submit"]:hover {
+.page_chooser:hover {
     width: 100%;
     background: linear-gradient(to right, transparent 0, transparent 98%, var(--link-color) 98%, var(--link-color) 100%);
 }

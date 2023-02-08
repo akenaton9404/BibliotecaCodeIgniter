@@ -11,3 +11,5 @@ function hideInfo() {
         }
     }, parseInt(document.getElementById('info-box').currentStyle.animationDelay) * 1.1);
 }
+
+setTimeout(hideInfo, 5000)
