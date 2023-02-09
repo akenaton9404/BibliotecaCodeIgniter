@@ -110,4 +110,8 @@ table tr {
     box-shadow: none;
 
     background: var(--main-primary);
+
+    cursor: pointer;
+
+    font-size: 0;
 }

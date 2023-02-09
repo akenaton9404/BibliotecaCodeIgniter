@@ -8,7 +8,7 @@ use CodeIgniter\Controller;
 class TablesController extends Controller {
 
     public function index($tableName, $pageNumber = 1) {
-        $_rowPerPage = 5;
+        $_rowPerPage = 10;
 
         helper(['form', 'string']);
         $tableModel = model(ucfirst($tableName) . "Model");
@@ -20,7 +20,7 @@ class TablesController extends Controller {
             ],
             "fields_name" => $tableModel->db->getFieldNames($tableModel->table),
                                     //limit(nRows, Offset)
-            "tuples" => $tableModel->limit($_rowPerPage, 1 * $pageNumber - 1)->find()
+            "tuples" => $tableModel->limit($_rowPerPage, $_rowPerPage * ($pageNumber - 1))->find()
         ];
 
         foreach ($tableData["fields_name"] as $key => $value) :
@@ -45,6 +45,13 @@ class TablesController extends Controller {
     }
 
     public function changeTable() {
-        return redirect()->to('/tables/' . $this->request->getVar('table') . '/' . $this->request->getVar('pageNumber'));
+        if ($this->request->getVar('table') !== null) {
+            $splitString = [$this->request->getVar('table'), 1];
+        } else {
+            $pageNumberTableNameSeparator = "_";
+            $splitString = explode($pageNumberTableNameSeparator, $this->request->getVar('pageNumber'));
+        }
+
+        return redirect()->to('/tables/' . $splitString[0] . '/' . $splitString[1]);
     }
 }

@@ -24,8 +24,8 @@
         </div>
     </div>
     <form class="page_number_chooser" action="<?php echo base_url(); ?>/TablesController/changeTable/1" method="post">
-        <?php for ($i = 1; $i <= $pagesNumber["total"]; $i++) : ?>
-            <input id="<?= $i ?>" value="" style="<?= $i == $pagesNumber["currentPage"] ? "border: 2px solid var(--main-secondary);" : "" ?>" class="page_choose_button" type="submit" onclick="changePage(this.id)">
-        <?php endfor; ?>
+    <?php for ($i = 1; $i <= $pagesNumber["total"]; $i++) : ?>
+        <input name="pageNumber" value="<?= $table_name ?>_<?= $i ?>" value="" style="<?= $i == $pagesNumber["currentPage"] ? "border: 2px solid var(--main-secondary);" : "" ?>" class="page_choose_button" type="submit" onclick="changePage(this.id)">
+    <?php endfor; ?>
     </form>
 </div>
